@@ -15,30 +15,51 @@ struct ContentView: View {
         VStack {
             Spacer()
             
-            Image(systemName: imageName)
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.orange)
+                .shadow(radius: 30)
+            
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
+                .fontWeight(.bold)
             
             Spacer()
             
-            Button("Press Me!") {
-//                if message == "You are Awesome!" {
-//                    message = "You are Great!"
-//                    imageName = "hand.thumbsup"
-//                } else {
-//                    message = "You are Awesome!"
-//                    imageName = "sun.max.fill"
-//                }
-                message = (message == "You are Awesome!" ? "You are Great!": "You are Awesome!")
-                imageName = (message == "You are Awesome!" ? "sun.max.fill": "hand.thumbsup")
+            Button("BC's Future?") {
+                let image1 = "divest-01"
+                let image2 = "divest-02"
+                let image3 = "divest-03"
+                let image4 = "divest-04"
+                let caption1 = "Gasson Underwater."
+                let caption2 = "The Yacht Problem."
+                let caption3 = "No Backbone"
+                let caption4 = "Follow the Leader"
+                
+//                message = (message == "Gasson Underwater." ? "The Yacht Problem.": "Gasson Underwater.")
+//                imageName = (imageName == image1 ? image2: image1)
+                
+                switch imageName {
+                case image1:
+                    imageName = image2
+                    message = caption2
+                case image2:
+                    imageName = image3
+                    message = caption3
+                case image3:
+                    imageName = image4
+                    message = caption4
+                case image4:
+                    imageName = image1
+                    message = caption1
+                default:
+                    imageName = image1
+                    message = caption1
+                }
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
+            .tint(.black)
             
         }
         .padding()
